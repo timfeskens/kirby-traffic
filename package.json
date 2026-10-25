@@ -1,0 +1,7 @@
+{
+  "name": "kirby-traffic",
+  "private": true,
+  "license": "MIT",
+  "scripts": {"test": "node tests/panel.cjs"},
+  "devDependencies": {"@playwright/test": "^1.58.2"}
+}

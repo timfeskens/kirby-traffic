@@ -1,0 +1,20 @@
+{
+  "name": "timfeskens/kirby-traffic",
+  "description": "Cookie-free, privacy-conscious page-view and UTM reports in Kirby Panel",
+  "type": "kirby-plugin",
+  "license": "MIT",
+  "require": {
+    "php": "^8.4",
+    "ext-pdo": "*",
+    "ext-pdo_sqlite": "*",
+    "getkirby/cms": "^5.6.1",
+    "getkirby/composer-installer": "^1.2"
+  },
+  "autoload": {"psr-4": {"TimFeskens\\Traffic\\": "src/"}},
+  "extra": {"installer-name": "timfeskens-traffic", "kirby-cms-path": "kirby"},
+  "config": {"allow-plugins": {"getkirby/composer-installer": true}, "sort-packages": true},
+  "scripts": {
+    "test": "php tests/run.php",
+    "lint": "find src tests -name '*.php' -exec php -l {} \\; && php -l index.php"
+  }
+}

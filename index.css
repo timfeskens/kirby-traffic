@@ -1,0 +1,15 @@
+.timfeskens-traffic-view .traffic-period { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1rem 0; }
+.timfeskens-traffic-view .traffic-period a { padding: .65rem .85rem; background: var(--item-color-back); color: var(--color-text); border-radius: .4rem; font-size: .85rem; }
+.timfeskens-traffic-view .traffic-period [aria-current="page"] { background: var(--color-text); color: var(--item-color-back); }
+.timfeskens-traffic-view .traffic-intro, .timfeskens-traffic-view .traffic-muted { color: var(--color-text-dimmed); font-size: .85rem; line-height: 1.6; }
+.timfeskens-traffic-view .traffic-stats { display: grid; grid-template-columns: repeat(auto-fit,minmax(160px,1fr)); gap: 1rem; margin: 1.5rem 0; }
+.timfeskens-traffic-view .traffic-stats > div { padding: 1.5rem; background: var(--item-color-back); border-radius: .5rem; }
+.timfeskens-traffic-view .traffic-stats strong { display: block; font-size: 2rem; font-weight: 600; }
+.timfeskens-traffic-view .traffic-stats span { font-size: .85rem; }
+.timfeskens-traffic-view .traffic-section { margin: 2rem 0; min-width: 0; }
+.timfeskens-traffic-view .traffic-section h2 { font-weight: 600; margin-bottom: .75rem; }
+.timfeskens-traffic-view .traffic-table-scroll { overflow-x: auto; background: var(--item-color-back); border-radius: .5rem; }
+.timfeskens-traffic-view table { width: 100%; border-collapse: collapse; font-size: .85rem; }
+.timfeskens-traffic-view th, .timfeskens-traffic-view td { padding: .85rem 1rem; text-align: left; border-bottom: 1px solid var(--color-border); overflow-wrap: anywhere; min-width: 110px; }
+.timfeskens-traffic-view th { font-weight: 600; }
+.timfeskens-traffic-view .traffic-empty, .timfeskens-traffic-view .traffic-warning { padding: 1.25rem; background: var(--item-color-back); border-left: 3px solid var(--color-text-dimmed); line-height: 1.6; font-size: .9rem; }

@@ -1,0 +1,6 @@
+/vendor/
+/kirby/
+/node_modules/
+/site/
+*.sqlite*
+*.log
