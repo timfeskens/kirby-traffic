@@ -28,8 +28,8 @@ const { spawn } = require('node:child_process');
       if (logs.includes('Development Server')) resolve();
     });
     const base = `http://127.0.0.1:${port}`;
-    await page.goto(`${base}/panel/traffic`);
-    await page.getByRole('heading', {name: 'Verkeer', exact: true}).waitFor();
+    await page.goto(`${base}/panel/traffic-deprecated`);
+    await page.getByRole('heading', {name: 'Verkeer (deprecated)', exact: true}).waitFor();
     await page.locator('.traffic-empty').waitFor();
     assert.equal(fs.existsSync(path.join(temporary, 'site/logs/traffic/views.sqlite')), false, 'Empty report does not create storage');
     await page.request.get(`${base}/fixture/seed`);
@@ -38,7 +38,7 @@ const { spawn } = require('node:child_process');
     assert.equal(await page.evaluate(() => window.pwned), undefined, 'Report text is escaped');
     for (const days of [7, 90, 30]) {
       await page.getByRole('link', {name: `Laatste ${days} dagen`, exact: true}).click();
-      await page.waitForURL(`**/panel/traffic/${days}`);
+      await page.waitForURL(`**/panel/traffic-deprecated/${days}`);
       await page.getByText('fictional-autumn', {exact: true}).waitFor();
       assert.equal(await page.locator('.traffic-period [aria-current="page"]').innerText(), `Laatste ${days} dagen`);
     }
@@ -64,7 +64,7 @@ const { spawn } = require('node:child_process');
     await page.getByRole('button', {name: 'Vernieuwen', exact: true}).click();
     await page.getByRole('status').filter({hasText: 'Verkeersgegevens zijn tijdelijk niet beschikbaar'}).waitFor();
     assert.deepEqual(errors, [], 'No Panel JavaScript errors');
-    console.log('Real Panel passed: empty/populated/error reports, refresh, periods, safe text and accessible tables at 1440/390/375px.');
+    console.log('Real Panel passed: deprecated traffic reports, refresh, periods, safe text and accessible tables at 1440/390/375px.');
   } catch (error) {
     console.error(await page.locator('body').innerText());
     console.error(logs);

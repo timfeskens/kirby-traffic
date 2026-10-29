@@ -23,10 +23,10 @@ panel.plugin("timfeskens/traffic", {
       render(h) {
         const r = this.report;
         return h("k-panel-inside", { class: "timfeskens-traffic-view" }, [
-          h("k-header", "Verkeer"),
+          h("k-header", "Verkeer (deprecated)"),
           h("k-button", { props: { icon: "refresh" }, on: { click: this.refresh } }, "Vernieuwen"),
           h("nav", { class: "traffic-period", attrs: { "aria-label": "Rapportperiode" } }, [7, 30, 90].map(days =>
-            h("k-link", { props: { to: `traffic/${days}` }, attrs: { "aria-current": r.days === days ? "page" : null } }, `Laatste ${days} dagen`))),
+            h("k-link", { props: { to: `traffic-deprecated/${days}` }, attrs: { "aria-current": r.days === days ? "page" : null } }, `Laatste ${days} dagen`))),
           h("p", { class: "traffic-intro" }, `Paginaweergaven, geen unieke bezoekers. Zonder cookies, IP-adressen of bezoekersprofielen. Tijdzone: ${r.timezone}.`),
           h("p", { class: "traffic-intro" }, "Je eigen bezoeken tellen niet mee zolang je in dit browserprofiel bent ingelogd in het Panel. Test een UTM-link in een privévenster zonder Panel-sessie en vernieuw daarna dit rapport. Ook Do Not Track en Global Privacy Control worden gerespecteerd."),
           r.error ? h("p", { class: "traffic-warning", attrs: { role: "status" } }, "Verkeersgegevens zijn tijdelijk niet beschikbaar. Controleer de opslag en SQLite-ondersteuning.") : null,

@@ -94,7 +94,7 @@ try {
         'url' => 'https://example.test', 'timfeskens.traffic.hosts' => $hosts,
     ]]);
     $kirby->site();
-    $area = $kirby->extension('areas', 'traffic')[0];
+    $area = $kirby->extension('areas', 'traffic-deprecated')[0];
     $action = $area()['views'][0]['action'];
     foreach ([null, 'nobody'] as $identity) {
         $kirby->impersonate($identity);
@@ -105,6 +105,7 @@ try {
     }
     $kirby->impersonate('kirby');
     check($area()['menu'] === true, 'Panel menu visible for admin');
+    check($area()['link'] === 'traffic-deprecated', 'Separate deprecated sidebar item');
     check($action('7')['props']['report']['days'] === 7, 'Actual admin Panel action returns period report');
     $kirby->impersonate(null);
     $_SERVER = array_replace($_SERVER, $request);

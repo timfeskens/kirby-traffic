@@ -34,21 +34,21 @@ Kirby::plugin('timfeskens/traffic', [
         },
     ],
     'areas' => [
-        'traffic' => function () {
+        'traffic-deprecated' => function () {
             return [
-                'label' => 'Verkeer',
+                'label' => 'Verkeer (deprecated)',
                 'icon' => 'chart',
                 'menu' => Traffic::isAdmin(kirby()->user()),
-                'link' => 'traffic',
+                'link' => 'traffic-deprecated',
                 'views' => [[
-                    'pattern' => 'traffic/(:num?)',
+                    'pattern' => 'traffic-deprecated/(:num?)',
                     'action' => function ($days = '30') {
                         if (!Traffic::isAdmin(kirby()->user())) {
                             throw new PermissionException('Alleen beheerders kunnen verkeersgegevens bekijken.');
                         }
                         return [
                             'component' => 'timfeskens-traffic-view',
-                            'title' => 'Verkeer',
+                            'title' => 'Verkeer (deprecated)',
                             'props' => ['report' => Traffic::report(
                                 kirby()->root('logs') . '/traffic/views.sqlite',
                                 (int)$days,

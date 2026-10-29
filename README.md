@@ -78,7 +78,9 @@ When migrating the former `timfs/traffic` plugin, remove its code to avoid
 duplicate counting, replace `timfs.traffic.*` config keys with
 `timfeskens.traffic.*`, and retain the existing logs mount. The database path and
 schema are unchanged; existing totals remain available without a migration.
-The Panel URL remains `/panel/traffic`.
+The Panel area remains `/panel/traffic`; its old page-view report is now in
+**Verkeer (deprecated)** at `/panel/traffic-deprecated`. Do not install the old
+plugin alongside this one: its reporting and collection code are already included.
 
 In multi-stage Docker builds, copy the Composer-installed plugin from the
 dependencies stage into the runtime image. Do not rely on an ignored local copy:
@@ -105,3 +107,10 @@ npm test
 Tests use fictional records and isolated temporary storage, not production data.
 Browser tests exercise the real Kirby Panel at desktop and phone widths.
 CI runs PHP 8.4 and 8.5. Published versions use `v0.1.x` tags.
+## Search Console and global SEO settings
+
+Google Search Console charts and the global SEO sidebar editor are provided by
+[`timfeskens/kirby-seo`](https://github.com/timfeskens/kirby-seo), not this plugin.
+The SEO plugin owns `/panel/traffic` and works without this legacy plugin.
+This plugin only adds **Verkeer (deprecated)** at `/panel/traffic-deprecated`
+and preserves the existing cookie-free page-view/UTM collection and SQLite data.
